@@ -21,19 +21,21 @@ body{
 min-height:100vh;
 display:flex;
 justify-content:center;
-align-items:center;
+align-items:flex-start;
 padding:20px;
 font-family:'Quicksand', sans-serif;
 background:linear-gradient(135deg,#eaf4ff,#dbeafe,#f5f9ff);
 color:#1f2933;
-overflow:hidden;
+overflow-x:hidden;
+overflow-y:auto;
 }
 
 .page{
 display:none;
 width:100%;
 justify-content:center;
-align-items:center;
+align-items:flex-start;
+padding:20px 0;
 }
 
 .page.active{
@@ -87,6 +89,7 @@ font-size:1.15rem;
 line-height:1.7;
 margin-bottom:18px;
 color:#334155;
+white-space:pre-line;
 }
 
 .small-note{
@@ -160,6 +163,41 @@ background:#8fae8c;
 color:white;
 }
 
+@media (max-width: 600px){
+body{
+padding:12px;
+}
+
+.page{
+padding:12px 0;
+}
+
+.card{
+width:100%;
+padding:34px 22px;
+}
+
+h1{
+font-size:2.3rem;
+}
+
+h2{
+font-size:2rem;
+}
+
+.question{
+font-size:1.6rem;
+}
+
+.page-text{
+font-size:1.05rem;
+}
+
+.reason-list{
+font-size:1rem;
+}
+}
+
 </style>
 </head>
 
@@ -195,20 +233,13 @@ I apologize for making you mad it wasn't my intention ;-;
 <p class="page-text">
 I was 100% gonna tell you where I went I just tried to make a joke
 </p>
-
 <p class="page-text">
 I won't be mean anymore it's not what I tried to do, and I think that making an entire website might be extra but would be a little more sincere than just texting you sorry lol
 <img src="Images/embarrased.png.png" class="emoji">
 </p>
 
 <p class="page-text">
-I went to give my ex some of her stuff back.
-
-I turned my location off because I didn’t want anyone seeing that and thinking sum weird.
-
-I tried to make a little joke and it ended up sounding like I was being mean.
-
-Perhaps I thought I was as funny as you but clearly im not😔
+I went to give my ex some of her stuff back. I turned my location off because I didn’t want anyone seeing that and thinking sum weird. I tried to make a little joke and it ended up sounding like I was being mean. Perhaps I thought I was as funny as you but clearly im not😔
 </p>
 
 <div class="button-row">
@@ -283,6 +314,7 @@ document.querySelectorAll(".page").forEach(page=>{
 page.classList.remove("active");
 });
 document.getElementById(pageId).classList.add("active");
+window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
 function showVerdict(choice){
