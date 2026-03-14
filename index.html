@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+
+<title>Poopy's Apology to Joc</title>
+
+<style>
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
+
+body{
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:20px;
+font-family:'Quicksand', sans-serif;
+background:linear-gradient(135deg,#eaf4ff,#dbeafe,#f5f9ff);
+color:#1f2933;
+overflow:hidden;
+}
+
+.page{
+display:none;
+width:100%;
+justify-content:center;
+align-items:center;
+}
+
+.page.active{
+display:flex;
+}
+
+.card{
+background:ghostwhite;
+padding:50px 40px;
+border-radius:28px;
+text-align:center;
+width:90%;
+max-width:650px;
+box-shadow:0 25px 60px rgba(0,0,0,0.15);
+transform:rotate(-8deg);
+}
+
+#page2 .card,
+#page3 .card{
+transform:none;
+max-width:600px;
+text-align:center;
+}
+
+h1{
+font-size:3rem;
+margin-bottom:12px;
+color:#1d3557;
+font-weight:700;
+}
+
+h2{
+font-size:2.3rem;
+margin-bottom:16px;
+color:#1d3557;
+font-weight:700;
+}
+
+.subtitle{
+font-size:1rem;
+margin-bottom:30px;
+}
+
+.question{
+font-size:2rem;
+margin-bottom:30px;
+}
+
+.page-text{
+font-size:1.15rem;
+line-height:1.7;
+margin-bottom:18px;
+color:#334155;
+}
+
+.small-note{
+margin-top:18px;
+font-size:.95rem;
+color:#475569;
+}
+
+.reason-list{
+text-align:left;
+max-width:420px;
+margin:10px auto 25px auto;
+color:#334155;
+font-size:1.1rem;
+line-height:1.6;
+}
+
+.reason-list li{
+margin-bottom:8px;
+}
+
+.emoji{
+height:28px;
+vertical-align:middle;
+margin-left:6px;
+}
+
+.hostage-image,
+.cat-image{
+width:260px;
+max-width:100%;
+border-radius:14px;
+margin-top:15px;
+margin-bottom:15px;
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+.button-row{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+margin-top:10px;
+}
+
+button{
+border:none;
+border-radius:999px;
+padding:16px 34px;
+font-size:16px;
+font-weight:600;
+cursor:pointer;
+transition:all .25s ease;
+}
+
+#yesBtn,
+.backBtn,
+.nextBtn{
+background:#1d3557;
+color:white;
+box-shadow:0 8px 20px rgba(29,53,87,.3);
+}
+
+#noBtn{
+background:#8fae8c;
+color:white;
+}
+
+#thinkBtn{
+background:#8fae8c;
+color:white;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1 -->
+<div class="page active" id="page1">
+<div class="card">
+
+<h1>Poopy's Apology to Joc</h1>
+
+<p class="question">Hear me out ?</p>
+<p class="subtitle">Try pressing no first its funny and refresh if you have to</p>
+
+<div class="button-row">
+<button id="yesBtn">Yes</button>
+<button id="noBtn">No</button>
+</div>
+
+</div>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page" id="page2">
+<div class="card">
+
+<h2>sorry this might be a little short</h2>
+
+<p class="page-text">
+I apologize for making you mad it wasn't my intention ;-;
+</p>
+
+<p class="page-text">
+I was 100% gonna tell you where I went I just tried to make a joke
+</p>
+
+<p class="page-text">
+I won't be mean anymore it's not what I tried to do, and I think that making an entire website might be extra but would be a little more sincere than just texting you sorry lol
+<img src="Images/embarrased.png.png" class="emoji">
+</p>
+
+<p class="page-text">
+I went to give my ex some of her stuff back.
+
+I turned my location off because I didn’t want anyone seeing that and thinking sum weird.
+
+I tried to make a little joke and it ended up sounding like I was being mean.
+
+Perhaps I thought I was as funny as you but clearly im not😔
+</p>
+
+<div class="button-row">
+<button class="backBtn" onclick="goToPage('page1')">Back</button>
+<button class="nextBtn" onclick="goToPage('page3')">Next</button>
+</div>
+
+<p class="small-note">thank you for at least hearing me out</p>
+
+</div>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page" id="page3">
+<div class="card">
+
+<h2>so what we thinkinnn</h2>
+
+<p class="page-text">Reasons why you should forgive me:</p>
+
+<ol class="reason-list">
+<li>My brain already exploded writing 300 lines of HTML and JavaScript.</li>
+<li>I promise I was not trying to be mean.</li>
+<li>You are cool and I do not want you mad at me.</li>
+</ol>
+
+<p class="page-text">
+try pressing green button first i sweaar its kinda funny too
+</p>
+
+<div class="button-row">
+<button id="forgiveBtn" class="nextBtn" onclick="showVerdict('forgive')">forgive crispy</button>
+<button id="thinkBtn" onclick="showVerdict('think')">hmmm let me think</button>
+<button class="backBtn" onclick="goToPage('page2')">Back</button>
+</div>
+
+<p class="small-note" id="verdictText"></p>
+
+<div id="hostageSection" style="display:none;">
+<img src="Images/glasses.jpg" class="hostage-image">
+
+<p class="page-text">
+think about how i have your glasses hostage too.
+</p>
+
+<button class="nextBtn" onclick="showVerdict('forgive')">
+ok nvm i forgive u
+</button>
+</div>
+
+<div id="catSection" style="display:none;">
+<img src="Images/cat.png" class="cat-image">
+
+<p class="page-text">
+promise ill try not to be mean.
+</p>
+</div>
+
+</div>
+</div>
+
+<script>
+
+const yesBtn = document.getElementById("yesBtn");
+const noBtn = document.getElementById("noBtn");
+
+let yesScale = 1;
+let noScale = 1;
+
+function goToPage(pageId){
+document.querySelectorAll(".page").forEach(page=>{
+page.classList.remove("active");
+});
+document.getElementById(pageId).classList.add("active");
+}
+
+function showVerdict(choice){
+
+const verdictText = document.getElementById("verdictText");
+const hostageSection = document.getElementById("hostageSection");
+const catSection = document.getElementById("catSection");
+const forgiveBtn = document.getElementById("forgiveBtn");
+
+if(choice === "forgive"){
+verdictText.textContent = "yayy. thank you for forgiving me.";
+hostageSection.style.display = "none";
+catSection.style.display = "block";
+forgiveBtn.style.display = "inline-block";
+}
+
+if(choice === "think"){
+verdictText.textContent = "";
+hostageSection.style.display = "block";
+catSection.style.display = "none";
+forgiveBtn.style.display = "none";
+}
+
+}
+
+noBtn.addEventListener("click", () => {
+
+yesScale += 0.4;
+noScale -= 0.1;
+
+if(noScale < 0.5){
+noScale = 0.5;
+}
+
+yesBtn.style.transform = `scale(${yesScale})`;
+noBtn.style.transform = `scale(${noScale})`;
+
+});
+
+yesBtn.addEventListener("click", () => {
+goToPage("page2");
+});
+
+</script>
+
+</body>
+</html>
